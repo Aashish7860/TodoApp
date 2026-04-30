@@ -1,0 +1,101 @@
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  background: #f1f5f9;
+  padding: 24px;
+}
+
+.container {
+  width: 800px ;
+  margin: auto;
+  padding: 16px;
+  background: #ffffff;
+  border-radius: 16px;
+}
+
+.add-todo {
+  display: grid;
+  /* grid-template-columns:120px 180px 150px 150px; */
+  grid-template-columns: 1fr 2fr 1fr 2fr;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 24px;
+
+}
+
+.add-todo label {
+  font-weight: 600;
+}
+
+.add-todo input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+}
+
+.add-todo button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 10px;
+  background: #2563eb;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.add-todo button:hover {
+  background: #1d4ed8;
+}
+
+.todo-table {
+  border: 1px solid #d1d5db;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.todo-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 2fr;
+}
+
+
+
+.todo-header {
+  background: #f8fafc;
+  font-weight: bold;
+}
+
+.todo-cell {
+  display: flex;
+    justify-content: center;
+    text-align: left;
+  align-items: center;
+  padding: 16px;
+  gap: 10px;
+  /* border: 1px solid black; */
+  
+}
+
+.todo-cell input[type='checkbox'] {
+  display: block;
+  width: 18px;
+  height: 18px;
+}
+
+/* .todo-cell .lastcell{
+  grid-row: 4/6;
+  grid-column:4/6;
+} */
+
+/* .lastcell{
+  gap: 20px;
+} */
