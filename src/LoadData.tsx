@@ -1,4 +1,5 @@
-function LoadData({ todos, onCompleted }: any) {
+// function LoadData({ todos, onCompleted }: any) {
+    function LoadData({ todos, onCompleted ,onEdit,onDelete}: any) {
   return (
         <div className="todo-table">
           <div className="todo-row todo-header">
@@ -11,7 +12,15 @@ function LoadData({ todos, onCompleted }: any) {
               <div className="todo-cell">{todo.id}</div>
               <div className="todo-cell">{todo.title}</div>
               {/* <div className="todo-cell">{todo.completed.toString()}</div> */}
-              <div className="todo-cell"><input type='checkbox' checked={todo.completed} onChange={() => onCompleted({ id: todo.id })} /></div>
+              {/* <div className="todo-cell"><input type='checkbox' checked={todo.completed} onChange={() => onCompleted({ id: todo.id })} /></div> */}
+              <div className="todo-cell">
+                <input className="check-complete" type='checkbox' checked={todo.completed} onChange={(e) => onCompleted({...todo, completed: e.target.checked})} />
+                </div>
+                
+                <div className="todo-cell lastcell">
+                      <button className="update-btn" onClick={() => onEdit({id: todo.id})}>Edit</button>
+                         <button className="delete-btn" onClick={() => onDelete({id: todo.id})}>Delete</button>
+                </div>
             </div>
           ))}
         </div>
