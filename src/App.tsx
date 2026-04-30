@@ -41,7 +41,7 @@ const onRemoveAllTodo=()=>{
 const handleDelete=({id}:any)=>{
   setTodos(todos.filter(t=> t.id !==id))
 }
-const handleCompleted=({id}: any)=>{
+const handleCompleted=({id}: {id:number})=>{
 
     setTodos(todos.map(t=>{
       if(t.id === id){
@@ -52,6 +52,7 @@ const handleCompleted=({id}: any)=>{
 }
   return (
     <div className="container">
+      <h1 className="todo-topheader">TODO APP</h1>
       <AddTodo onAddTodo={handleAddTodo} />
       <RemoveAllTodo onRemove={onRemoveAllTodo}/>
       {/* <TodoList todos={todos} onCompleted={handleCompleted} onDelete={handleDelete}/> */}

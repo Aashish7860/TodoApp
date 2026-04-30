@@ -22,11 +22,13 @@ body {
 }
 
 .add-todo {
+  width: 70%;
   display: grid;
   /* grid-template-columns:120px 180px 150px 150px; */
-  grid-template-columns: 1fr 2fr 1fr 2fr;
+  grid-template-columns: 1fr 2fr 1fr;
   gap: 12px;
   align-items: center;
+  justify-content: space-between;
   margin-bottom: 24px;
 
 }
@@ -99,3 +101,7 @@ body {
 /* .lastcell{
   gap: 20px;
 } */
+
+.todo-topheader{
+  text-align: center;
+}
