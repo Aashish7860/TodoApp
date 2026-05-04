@@ -22,7 +22,7 @@ body {
 }
 
 .add-todo {
-  width: 70%;
+  width: 65%;
   display: grid;
   /* grid-template-columns:120px 180px 150px 150px; */
   grid-template-columns: 1fr 2fr 1fr;
@@ -44,21 +44,22 @@ body {
   border-radius: 10px;
 }
 
-.add-todo button {
+.add-todo-button {
+  /* display: inline-block; */
   padding: 10px 18px;
   border: none;
   border-radius: 10px;
-  background: #2563eb;
+  background: #0d6efd;
   color: white;
   font-weight: 600;
   cursor: pointer;
 }
 
-.add-todo button:hover {
+.add-todo-button:hover {
   background: #1d4ed8;
 }
 
-.todo-table {
+.todo-list-table {
   border: 1px solid #d1d5db;
   border-radius: 14px;
   overflow: hidden;
@@ -104,4 +105,37 @@ body {
 
 .todo-topheader{
   text-align: center;
+}
+
+.check-completed{
+   text-decoration: line-through;
+}
+
+.delete-btn{
+      padding: 10px;
+    background-color: #dc3545 ;
+    border: none;
+    border-radius: 10%;
+        color: white;
+        font-weight: bold;
+    font-family:Arial, Helvetica, sans-serif
+}
+
+.on-remove{
+   padding: 10px;
+    background-color: #dc3545 ;
+    border-color: #dc3545;
+    border-radius: 10%;
+    color: white;
+    font-weight: bold;
+    font-family:Arial, Helvetica, sans-serif;
+    float: right;
+   
+} 
+
+.row-container{
+  width: 100%;
+ display: inline-block
+
+
 }
