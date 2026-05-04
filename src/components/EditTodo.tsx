@@ -1,12 +1,7 @@
 import { useState } from "react";
 
 import Input from "./Input/Input";
-
-interface ITodo {
-  id: number | string;
-  title: string;
-  completed: boolean;
-}
+import type { ITodo } from "./types/Interface/todo";
 
 interface IEditTodoProps {
   todo: ITodo;
@@ -18,10 +13,12 @@ function EditTodo({ todo, onChange }: IEditTodoProps) {
   const [title, setTitle] = useState(todo.title);
 
   const handleSave = () => {
-    const trimmedTitle = title.trim();
-    if (trimmedTitle !== todo.title) {
-      onChange({ ...todo, title: trimmedTitle });
+    const trimmed = title.trim();
+
+    if (trimmed && trimmed !== todo.title) {
+      onChange({ ...todo, title: trimmed });
     }
+
     setIsEditing(false);
   };
 

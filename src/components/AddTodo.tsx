@@ -2,15 +2,27 @@ import { useState } from "react";
 import Button from "./Button/Button";
 import Input from "./Input/Input";
 
-function AddTodo({ onAddTodo }: any) {
+interface IAddTodoProps {
+  onAddTodo: (todo: { title: string }) => void;
+}
+
+function AddTodo({ onAddTodo }: IAddTodoProps) {
   const [title, setTitle] = useState("");
+
+  const handleAddClick = () => {
+    if (title.trim() == "") {
+      alert("Please input something");
+      return;
+    }
+    onAddTodo({ title });
+    setTitle("");
+  };
+
   return (
     <div className="add-todo">
-      <label>Add a new todo:</label>
       <Input
         type="text"
         placeholder="Add a new todo"
-        // value={title}
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
@@ -19,10 +31,8 @@ function AddTodo({ onAddTodo }: any) {
         type="button"
         label="Add"
         className="add-todo-button"
-        onClick={() => {
-          (onAddTodo({ title }), setTitle(""));
-        }}
-      ></Button>
+        onClick={handleAddClick}
+      />
     </div>
   );
 }

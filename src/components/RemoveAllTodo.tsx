@@ -1,11 +1,8 @@
 import Button from "./Button/Button";
 
-function RemoveAllTodo({ onRemove }: any) {
+function RemoveAllTodo({ onRemove }: { onRemove: () => void }) {
   return (
     <>
-      {/* <button className="on-remove" type="button" onClick={onRemove}> */}
-
-      {/* </button> */}
       <Button
         type="button"
         label="Remove All"
