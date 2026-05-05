@@ -1,16 +1,19 @@
-import Button from "./Button/Button";
+import { useTodoStore } from "../state/useTodoStore";
+import { Button } from "./Button/Button";
 
-function RemoveAllTodo({ onRemove }: { onRemove: () => void }) {
+// function RemoveAllTodo({ onRemove }: { onRemove: () => void }) {
+function RemoveAllTodo() {
+  const removeAll = useTodoStore((state) => state.removeAll);
   return (
     <>
       <Button
         type="button"
         label="Remove All"
-        className="on-remove"
-        onClick={onRemove}
+        className="dp-todo__remove-all-btn"
+        onClick={removeAll}
       ></Button>
     </>
   );
 }
 
-export default RemoveAllTodo;
+export { RemoveAllTodo };

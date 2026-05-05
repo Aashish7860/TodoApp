@@ -1,26 +1,32 @@
 import { useState } from "react";
-import Button from "./Button/Button";
-import Input from "./Input/Input";
+import { Button } from "./Button/Button";
+import { Input } from "./Input/Input";
 
-interface IAddTodoProps {
-  onAddTodo: (todo: { title: string }) => void;
-}
+import { useTodoStore } from "../state/useTodoStore";
 
-function AddTodo({ onAddTodo }: IAddTodoProps) {
+// interface IAddTodoProps {
+//   onAddTodo: (todo: { title: string }) => void;
+// }
+
+// function AddTodo({ onAddTodo }: IAddTodoProps) {
+function AddTodo() {
   const [title, setTitle] = useState("");
+
+  const onAddTodo = useTodoStore((state) => state.addTodo);
 
   const handleAddClick = () => {
     if (title.trim() == "") {
       alert("Please input something");
       return;
     }
-    onAddTodo({ title });
+    onAddTodo(title);
     setTitle("");
   };
 
   return (
-    <div className="add-todo">
+    <div className="dp-todo-add">
       <Input
+        className="dp-todo-add__input"
         type="text"
         placeholder="Add a new todo"
         value={title}
@@ -28,13 +34,13 @@ function AddTodo({ onAddTodo }: IAddTodoProps) {
       />
 
       <Button
+        className="dp-add-todo__button"
         type="button"
         label="Add"
-        className="add-todo-button"
         onClick={handleAddClick}
       />
     </div>
   );
 }
 
-export default AddTodo;
+export { AddTodo };

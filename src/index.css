@@ -13,35 +13,13 @@ body {
   padding: 40px 16px;
 }
 
-.container {
-  max-width: 700px;
-  margin: auto;
-  padding: 24px;
-  background: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-}
-
-.todo-topheader {
-  text-align: center;
-  margin-bottom: 24px;
-}
-
-.row-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 20px;
-}
-
-.add-todo {
+.dp-todo-add {
   display: flex;
   gap: 10px;
   flex: 1;
 }
 
-.add-todo input {
+.dp-todo-add__input {
   flex: 1;
   padding: 10px 12px;
   border: 1px solid #d1d5db;
@@ -49,11 +27,11 @@ body {
   outline: none;
 }
 
-.add-todo input:focus {
+.dp-todo-add__input:focus {
   border-color: #2563eb;
 }
 
-.add-todo-button {
+.dp-add-todo__button {
   padding: 10px 16px;
   border: none;
   border-radius: 10px;
@@ -63,11 +41,11 @@ body {
   cursor: pointer;
 }
 
-.add-todo-button:hover {
+.dp-add-todo__button:hover {
   background: #1d4ed8;
 }
 
-.on-remove {
+.dp-todo__remove-all-btn {
   padding: 10px 16px;
   background-color: #dc3545;
   border: none;
@@ -78,41 +56,41 @@ body {
   white-space: nowrap;
 }
 
-.on-remove:hover {
+.dp-todo__remove-all-btn:hover {
   background-color: #b02a37;
 }
 
-.todo-list-table {
+.dp-todo-list {
   border: 1px solid #e5e7eb;
   border-radius: 12px;
   overflow: hidden;
 }
 
-.todo-row {
+.dp-todo-item {
   display: grid;
   grid-template-columns: 40px 1fr 80px;
   align-items: center;
   padding: 12px 16px;
   border-bottom: 1px solid #f1f5f9;
+      gap: 12px;
 }
 
 
-
-.todo-row:hover {
+.dp-todo-item:hover {
   background: #f9fafb;
 }
 
-.todo-cell {
+/* .dp-todo-item__cell {
   display: flex;
   align-items: center;
-}
+} */
 
-.check-completed {
+.dp-todo-item__title_completed {
   text-decoration: line-through;
   color: #9ca3af;
 }
 
-.delete-btn {
+.dp-todo__delete-btn {
   padding: 6px 10px;
   background-color: #dc3545;
   border: none;
@@ -122,13 +100,11 @@ body {
   cursor: pointer;
 }
 
-.delete-btn:hover {
+.dp-todo__delete-btn:hover {
   background-color: #b02a37;
 }
 
-.edit-todo input {
-  width: 100%;
-  padding: 6px 8px;
-  border: 1px solid #d1d5db;
-  border-radius: 6px;
+.dp-todo__edit_title{
+    word-wrap: break-word;
+
 }

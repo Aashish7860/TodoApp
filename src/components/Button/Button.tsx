@@ -26,4 +26,4 @@ function Button({
   );
 }
 
-export default Button;
+export { Button };

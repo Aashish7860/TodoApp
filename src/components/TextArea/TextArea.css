@@ -1,0 +1,10 @@
+
+textarea{
+    height: auto;
+    width: 450px;
+    font-size: 14px;
+    field-sizing: content;
+    font-family: Arial, Helvetica, sans-serif;
+    max-height: 100px;
+        word-wrap: break-word;
+}

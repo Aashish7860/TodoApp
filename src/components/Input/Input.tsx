@@ -1,4 +1,7 @@
+import "./Input.css";
 interface IInputProps {
+  children?: string;
+  className?: string;
   type?: "text" | "checkbox" | "number" | "email" | "password";
   // id?:string
   label?: string;
@@ -9,12 +12,16 @@ interface IInputProps {
   disabled?: boolean;
   autoFocus?: boolean;
   onBlur?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onDoubleClick?: (e: React.MouseEvent<HTMLInputElement>) => void;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+
   onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
 
   checked?: boolean;
 }
 function Input({
+  children,
+  className,
   // id,
   type,
   label,
@@ -28,12 +35,13 @@ function Input({
   onBlur,
   onKeyDown,
   checked,
+  onDoubleClick,
 }: IInputProps) {
   return (
     <>
       <input
+        className={className}
         type={type}
-        id={label}
         value={value}
         name={name}
         placeholder={placeholder}
@@ -43,10 +51,13 @@ function Input({
         onBlur={onBlur}
         onKeyDown={onKeyDown}
         checked={type === "checkbox" ? checked : undefined}
+        onDoubleClick={onDoubleClick}
+        children={children}
       />
+      {label}
       {error && <p className="error">Input filed can't be empty!</p>}
     </>
   );
 }
 
-export default Input;
+export { Input };
