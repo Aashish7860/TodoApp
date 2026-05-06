@@ -6,5 +6,7 @@ textarea{
     field-sizing: content;
     font-family: Arial, Helvetica, sans-serif;
     max-height: 100px;
-        word-wrap: break-word;
+    /* width: 465px; */
+    max-width: 470px;
+    word-wrap: break-word;
 }

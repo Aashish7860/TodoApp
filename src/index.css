@@ -13,13 +13,13 @@ body {
   padding: 40px 16px;
 }
 
-.dp-todo-add {
+.dp-add-todo {
   display: flex;
   gap: 10px;
   flex: 1;
 }
 
-.dp-todo-add__input {
+.dp-add-todo__input {
   flex: 1;
   padding: 10px 12px;
   border: 1px solid #d1d5db;
@@ -27,11 +27,11 @@ body {
   outline: none;
 }
 
-.dp-todo-add__input:focus {
+.dp-add-todo__input:focus {
   border-color: #2563eb;
 }
 
-.dp-add-todo__button {
+.dp-add-todo__add-button {
   padding: 10px 16px;
   border: none;
   border-radius: 10px;
@@ -41,11 +41,11 @@ body {
   cursor: pointer;
 }
 
-.dp-add-todo__button:hover {
+.dp-add-todo__add-button:hover {
   background: #1d4ed8;
 }
 
-.dp-todo__remove-all-btn {
+.dp-remove-all-todo__remove-btn {
   padding: 10px 16px;
   background-color: #dc3545;
   border: none;
@@ -56,7 +56,7 @@ body {
   white-space: nowrap;
 }
 
-.dp-todo__remove-all-btn:hover {
+.dp-remove-all-todo__remove-btn:hover {
   background-color: #b02a37;
 }
 
@@ -85,12 +85,12 @@ body {
   align-items: center;
 } */
 
-.dp-todo-item__title_completed {
+.dp-todo-item__title--completed {
   text-decoration: line-through;
   color: #9ca3af;
 }
 
-.dp-todo__delete-btn {
+.dp-delete-todo__delete-btn {
   padding: 6px 10px;
   background-color: #dc3545;
   border: none;
@@ -100,11 +100,12 @@ body {
   cursor: pointer;
 }
 
-.dp-todo__delete-btn:hover {
+.dp-delete-todo__delete-btn:hover {
   background-color: #b02a37;
 }
 
-.dp-todo__edit_title{
-    word-wrap: break-word;
+.dp-edit-todo__title{
+    /* word-wrap: break-word; */
+    word-break: break-all;
 
 }

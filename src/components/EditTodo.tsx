@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 // import { Input } from "./Input/Input";
 import type { ITodo } from "../types/Interface/todo";
 import { TextArea } from "./TextArea/TextArea";
-import { useTodoStore } from "../state/useTodoStore";
+import { useTodoStore } from "../store/useTodoStore";
+import { useShallow } from "zustand/shallow";
 
 // interface IEditTodoProps {
 //   todo: ITodo;
@@ -59,38 +60,49 @@ import { useTodoStore } from "../state/useTodoStore";
 
 interface IEditTodoProps {
   todo: ITodo;
-  // onChange: (updatedTodo: ITodo) => void;
 }
 
 function EditTodo({ todo }: IEditTodoProps) {
-  const [isEditing, setIsEditing] = useState(false);
-  const [title, setTitle] = useState(todo.title);
+  // const [isEditing, setIsEditing] = useState(false);
+  // const [title, setTitle] = useState(todo.title);
 
-  const updatedTodo = useTodoStore((state) => state.updateTodo);
+  // const setTitle = useTodoStore((state) => state.setTitle);
 
-  const handleSave = () => {
-    if (title != "" && title != todo.title) {
-      updatedTodo({ ...todo, title: title });
+  const updateTodo = useTodoStore((state) => state.updateTodo);
+  const isEditing = useTodoStore((state) => state.isEditing);
+  const startEditing = useTodoStore((state) => state.startEditing);
+  const stopEditing = useTodoStore((state) => state.stopEditing);
+  // const setIsEditing = useTodoStore((state) => state.setIsEditing);
+  const currentTodo = useTodoStore((state) => state.currentTodo);
+
+  const currentUser = isEditing && currentTodo?.id == todo.id;
+
+  const updateTitle = useTodoStore((state) => state.updateTitle);
+  const setUpdateTitle = useTodoStore((state) => state.setUpdateTitle);
+
+  const handleSaveForUpdate = () => {
+    if (updateTitle != "" && updateTitle != todo.title) {
+      updateTodo({ ...todo, title: updateTitle });
     }
-    setIsEditing(false);
+    stopEditing(todo, false);
   };
 
   return (
-    <div className="dp-todo__edit-btn">
-      {isEditing ? (
+    <div className="dp-edit-todo">
+      {isEditing && currentUser ? (
         <>
           <TextArea
-            value={title}
+            value={updateTitle}
             autoFocus
-            onChange={(e) => setTitle(e.target.value)}
-            onBlur={handleSave}
+            onChange={(e) => setUpdateTitle(e.target.value)}
+            onBlur={handleSaveForUpdate}
             onKeyDown={(e) => {
               if (e.key == "Enter") {
-                handleSave();
+                handleSaveForUpdate;
               }
               if (e.key == "Escape") {
-                setTitle(todo.title);
-                setIsEditing(false);
+                setUpdateTitle(todo.title);
+                stopEditing(todo, false);
               }
             }}
           />
@@ -98,8 +110,10 @@ function EditTodo({ todo }: IEditTodoProps) {
       ) : (
         <>
           <span
-            className="dp-todo__edit_title"
-            onDoubleClick={() => setIsEditing(true)}
+            className="dp-edit-todo__title"
+            onDoubleClick={() => {
+              startEditing(todo);
+            }}
           >
             {todo.title}
           </span>

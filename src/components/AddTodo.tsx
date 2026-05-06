@@ -1,40 +1,36 @@
-import { useState } from "react";
 import { Button } from "./Button/Button";
 import { Input } from "./Input/Input";
 
-import { useTodoStore } from "../state/useTodoStore";
+import { useTodoStore } from "../store/useTodoStore";
 
-// interface IAddTodoProps {
-//   onAddTodo: (todo: { title: string }) => void;
-// }
-
-// function AddTodo({ onAddTodo }: IAddTodoProps) {
 function AddTodo() {
-  const [title, setTitle] = useState("");
+  const addTitle = useTodoStore((state) => state.addTitle);
+  const setTitle = useTodoStore((state) => state.setAddTitle);
 
   const onAddTodo = useTodoStore((state) => state.addTodo);
+  // const handleAddClick = useTodoStore((state) => state.handleAddClick);
 
   const handleAddClick = () => {
-    if (title.trim() == "") {
+    if (addTitle.trim() == "") {
       alert("Please input something");
       return;
     }
-    onAddTodo(title);
+    onAddTodo(addTitle);
     setTitle("");
   };
 
   return (
-    <div className="dp-todo-add">
+    <div className="dp-add-todo">
       <Input
-        className="dp-todo-add__input"
+        className="dp-add-todo__input"
         type="text"
         placeholder="Add a new todo"
-        value={title}
+        value={addTitle}
         onChange={(e) => setTitle(e.target.value)}
       />
 
       <Button
-        className="dp-add-todo__button"
+        className="dp-add-todo__add-button"
         type="button"
         label="Add"
         onClick={handleAddClick}

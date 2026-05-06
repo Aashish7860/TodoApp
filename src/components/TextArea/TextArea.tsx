@@ -14,7 +14,7 @@ interface ITextAreaProps {
   error?: boolean;
   disabled?: boolean;
   autoFocus?: boolean;
-  onBlur?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  onBlur?: (e: React.FocusEvent<HTMLTextAreaElement>) => void;
   onDoubleClick?: (e: React.MouseEvent<HTMLTextAreaElement>) => void;
   onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
 
